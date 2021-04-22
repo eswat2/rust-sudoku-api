@@ -1,15 +1,13 @@
-use std::env;
-use std::time::{Instant};
 use actix_web::{web, App, HttpRequest, HttpResponse, HttpServer, Responder};
 use serde_json::json;
+use std::env;
+use std::time::Instant;
 use sudoku::Sudoku;
 
 async fn greet(req: HttpRequest) -> impl Responder {
     let name = req.match_info().get("name").unwrap_or("World");
     // format!("Hello {}!", &name)
-    let data = json!({
-        "hello": format!("{}", name)
-    });
+    let data = json!({ "hello": format!("{}", name) });
     HttpResponse::Ok().json(data)
 }
 
@@ -25,7 +23,7 @@ async fn puzzle(_req: HttpRequest) -> impl Responder {
     let fin = Instant::now();
     let mut solved = 0;
     let mut line = "".to_string();
-    
+
     if let Some(solution) = sudoku.solve_unique() {
         solved = fin.elapsed().as_nanos() as u64;
         line = format!("{}", solution);
