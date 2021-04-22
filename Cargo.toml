@@ -1,5 +1,5 @@
 [package]
-name = "rest-api"
+name = "rust-sudoku-api"
 version = "0.1.0"
 authors = ["Richard Hess <eswat2@gmail.com>"]
 edition = "2018"
