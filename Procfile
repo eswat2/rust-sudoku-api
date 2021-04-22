@@ -1,1 +1,1 @@
-web: ./target/release/rust-api
+web: ./target/release/rust-sudoku-api
