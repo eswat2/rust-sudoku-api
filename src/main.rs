@@ -1,3 +1,4 @@
+use std::env;
 use std::time::{Instant};
 use actix_web::{web, App, HttpRequest, HttpResponse, HttpServer, Responder};
 use serde_json::json;
@@ -41,10 +42,17 @@ async fn puzzle(_req: HttpRequest) -> impl Responder {
     HttpResponse::Ok().json(data)
 }
 
+fn get_server_port() -> u16 {
+    env::var("PORT")
+        .ok()
+        .and_then(|port| port.parse().ok())
+        .unwrap_or_else(|| 8080)
+}
+
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
-    let addr = "localhost";
-    let port = 8080;
+    let addr = String::from("0.0.0.0");
+    let port = get_server_port();
 
     println!("http://{}:{}", addr, port);
     println!("http://{}:{}/api/puzzle", addr, port);
