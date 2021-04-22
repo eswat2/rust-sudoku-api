@@ -35,5 +35,5 @@ simple api server implemented in Rust...
 [actix-rt]: https://crates.io/crates/actix-rt
 [serde-json]: https://crates.io/crates/serde_json
 [sudoku]: https://crates.io/crates/sudoku
-[local]: http://localhost:8080
-[puzzle]: http://localhost:8080/api/puzzle
+[local]: http://0.0.0.0:8080
+[puzzle]: http://0.0.0.0:8080/api/puzzle
