@@ -1,4 +1,5 @@
 use actix_web::{web, App, HttpRequest, HttpResponse, HttpServer, Responder};
+use base64::encode;
 use serde_json::json;
 use std::env;
 use std::time::Instant;
@@ -31,8 +32,9 @@ async fn puzzle(_req: HttpRequest) -> impl Responder {
 
     let data = json!({
         "blanks": blanks,
+        "clues": 81 - blanks,
         "puzzle": puzzle,
-        "solution": line,
+        "solution": encode(line),
         "solved": solved,
         "time": time,
         "units": "ns"
