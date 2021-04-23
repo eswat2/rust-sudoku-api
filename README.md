@@ -4,10 +4,11 @@ simple api server implemented in Rust...
 
 ### Dependencies:
 
-- [actix-web][actix-web]
-- [actix-rt][actix-rt]
-- [serde_json][serde-json]
-- [sudoku][sudoku]
+[![actix-web][badge-actix-web]][actix-web]
+[![actix-rt][badge-actix-rt]][actix-rt]
+[![base64][badge-base64]][base64]
+[![serde_json][badge-serde-json]][serde-json]
+[![sudoku][badge-sudoku]][sudoku]
 
 
 ### Usage:
@@ -33,7 +34,14 @@ simple api server implemented in Rust...
 
 [actix-web]: https://crates.io/crates/actix-web
 [actix-rt]: https://crates.io/crates/actix-rt
+[base64]: https://crates.io/crates/base64
 [serde-json]: https://crates.io/crates/serde_json
 [sudoku]: https://crates.io/crates/sudoku
 [local]: http://0.0.0.0:8080
 [puzzle]: http://0.0.0.0:8080/api/puzzle
+
+[badge-actix-web]: https://img.shields.io/badge/crates.io-actix--web-orange
+[badge-actix-rt]: https://img.shields.io/badge/crates.io-actix--rt-orange
+[badge-base64]: https://img.shields.io/badge/crates.io-base64-orange
+[badge-serde-json]: https://img.shields.io/badge/crates.io-serde__json-orange
+[badge-sudoku]: https://img.shields.io/badge/crates.io-sudoku-orange
