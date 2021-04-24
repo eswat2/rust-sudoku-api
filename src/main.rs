@@ -59,7 +59,7 @@ async fn main() -> std::io::Result<()> {
     println!("http://{}:{}/api/puzzle", addr, port);
 
     HttpServer::new(|| {
-        let cors = Cors::default();
+        let cors = Cors::permissive();
 
         App::new()
             .wrap(cors)
