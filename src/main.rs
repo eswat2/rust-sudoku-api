@@ -32,13 +32,18 @@ async fn puzzle(_req: HttpRequest) -> impl Responder {
     }
 
     let data = json!({
-        "blanks": blanks,
-        "clues": 81 - blanks,
+        "metrics" : {
+            "counts": {
+                "blanks": blanks,
+                "clues": 81 - blanks
+            },
+            "nanos": {
+                "generate": time,
+                "solve": solved
+            }
+        },
         "puzzle": puzzle,
-        "solution": encode(line),
-        "solved": solved,
-        "time": time,
-        "units": "ns"
+        "ref": encode(line)
     });
     HttpResponse::Ok().json(data)
 }
