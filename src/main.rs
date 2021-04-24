@@ -1,3 +1,4 @@
+use actix_cors::Cors;
 use actix_web::{web, App, HttpRequest, HttpResponse, HttpServer, Responder};
 use base64::encode;
 use serde_json::json;
@@ -58,7 +59,10 @@ async fn main() -> std::io::Result<()> {
     println!("http://{}:{}/api/puzzle", addr, port);
 
     HttpServer::new(|| {
+        let cors = Cors::default();
+
         App::new()
+            .wrap(cors)
             .route("/", web::get().to(greet))
             .route("/{name}", web::get().to(greet))
             .route("/api/puzzle", web::get().to(puzzle))
