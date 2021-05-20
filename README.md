@@ -22,14 +22,26 @@ simple api server implemented in Rust...
 
 ```
 {
-  "blanks": 57,
-  "puzzle": "1.......2.47.6..5...3......56...28.......91.....1..46.9.68..2...3........5.9....1",
-  "solution": "185794632247361958693528714561432879374689125829175463916853247438217596752946381",
-  "solved": 112097,
-  "time": 6171687,
-  "units": "ns"
+  "metrics": {
+    "counts": {
+      "blanks": 56,
+      "clues": 25
+    },
+    "nanos": {
+      "generate": 278502,
+      "solve": 5358
+    }
+  },
+  "puzzle": "51..6...28.2......6..3.8.9.4..9..8.........5.1564............192...9...8...54....",
+  "ref": "NTE5NzY0MzgyODMyMTU5NjQ3Njc0MzI4MTk1NDI3OTM1ODYxOTgzMjE2NzU0MTU2NDg3OTIzMzY1ODcyNDE5MjQxNjkzNTc4Nzk4NTQxMjM2"
 }
 ```
+
+| Property | Description |
+| ---: | :--- |
+| **metrics** | _insight into the puzzle counts & times_ |
+| **puzzle** | _a string representing the puzzle board (dots are blank cells)_ |
+| **ref** | _the base64 encoded solution to the puzzle_ |
 
 [actix-cors]: https://crates.io/crates/actix-cors
 [actix-web]: https://crates.io/crates/actix-web
