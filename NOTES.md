@@ -12,16 +12,12 @@ to update packages:
 cargo update
 ```
 
-to deploy:
+to run locally:
 
 ```
-git push heroku main
+cargo run
 ```
-
-## deployed
-
-- [rust-sudoku][heroku]
-- [rust-sudoku/api/puzzle][puzzle]
+- [puzzle][puzzle-lh] -- _opens on localhost:8000/api/puzzle_
 
 
 ## references
@@ -29,8 +25,7 @@ git push heroku main
 - [cargo-outdated][out-dated] - _new cargo subcommand_
 - [cargo-update][up-date] - _update dependencies_
 
-[heroku]: https://rust-sudoku-api.herokuapp.com/
-[puzzle]: https://rust-sudoku-api.herokuapp.com/api/puzzle
+[puzzle-lh]: https://localhost:8000/api/puzzle
 
 [out-dated]: https://github.com/kbknapp/cargo-outdated
 [up-date]: https://doc.rust-lang.org/cargo/commands/cargo-update.html
