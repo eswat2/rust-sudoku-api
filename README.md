@@ -2,7 +2,7 @@
 
 simple api server implemented in Rust...
 
-### Dependencies:
+## dependencies:
 
 [![actix-cors][badge-actix-cors]][actix-cors]
 [![actix-web][badge-actix-web]][actix-web]
@@ -11,14 +11,14 @@ simple api server implemented in Rust...
 [![sudoku][badge-sudoku]][sudoku]
 
 
-### Usage:
+## usage:
 
 `cargo run`
 
 - [localhost:8080][local]
 - [localhost:8080/api/puzzle][puzzle]
 
-### Sample:
+## output:
 
 ```
 {
@@ -43,6 +43,36 @@ simple api server implemented in Rust...
 | **puzzle** | _a string representing the puzzle board (dots are blank cells)_ |
 | **ref** | _the base64 encoded solution to the puzzle_ |
 
+## developer notes:
+
+to check for updates:
+
+```
+cargo outdated
+```
+
+to update packages:
+
+```
+cargo update
+```
+
+## references:
+
+- [cargo-outdated][out-dated] - _new cargo subcommand_
+- [cargo-update][up-date] - _update dependencies_
+
+## status:
+
+This code has been "deprecated" since Heroku is removing it's free tier in November 2022.
+
+> This repo is now primarily for local development.
+
+The new API is now serverless and running on Vercel...
+
+- [puzzle][puzzle-io] -- _serverless_
+
+
 [actix-cors]: https://crates.io/crates/actix-cors
 [actix-web]: https://crates.io/crates/actix-web
 [base64]: https://crates.io/crates/base64
@@ -50,6 +80,10 @@ simple api server implemented in Rust...
 [sudoku]: https://crates.io/crates/sudoku
 [local]: http://0.0.0.0:8080
 [puzzle]: http://0.0.0.0:8080/api/puzzle
+[puzzle-io]: https://sudoku-rust-api.vercel.app/api/puzzle
+
+[out-dated]: https://github.com/kbknapp/cargo-outdated
+[up-date]: https://doc.rust-lang.org/cargo/commands/cargo-update.html
 
 [badge-actix-cors]: https://img.shields.io/badge/crates.io-actix--cors-orange
 [badge-actix-web]: https://img.shields.io/badge/crates.io-actix--web-orange
