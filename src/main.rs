@@ -1,6 +1,6 @@
 use actix_cors::Cors;
 use actix_web::{web, App, HttpRequest, HttpResponse, HttpServer, Responder};
-use base64::encode;
+use base64::{encode};
 use serde_json::json;
 use std::env;
 use std::time::Instant;
