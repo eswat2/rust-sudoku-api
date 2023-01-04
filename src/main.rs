@@ -1,10 +1,12 @@
 use actix_cors::Cors;
 use actix_web::{web, App, HttpRequest, HttpResponse, HttpServer, Responder};
-use base64::{encode};
+use base64::encode;
 use serde_json::json;
 use std::env;
 use std::time::Instant;
 use sudoku::Sudoku;
+
+const PLATFORM: &str = "platform";
 
 async fn greet(req: HttpRequest) -> impl Responder {
     let name = req.match_info().get("name").unwrap_or("World");
@@ -43,7 +45,8 @@ async fn puzzle(_req: HttpRequest) -> impl Responder {
             }
         },
         "puzzle": puzzle,
-        "ref": encode(line)
+        "ref": encode(line),
+        "tag": PLATFORM
     });
     HttpResponse::Ok().json(data)
 }
