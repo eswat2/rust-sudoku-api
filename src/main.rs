@@ -1,6 +1,6 @@
 use actix_cors::Cors;
 use actix_web::{web, App, HttpRequest, HttpResponse, HttpServer, Responder};
-use base64::encode;
+use base64::{Engine as _, engine::general_purpose};
 use serde_json::json;
 use std::env;
 use std::time::Instant;
@@ -45,7 +45,7 @@ async fn puzzle(_req: HttpRequest) -> impl Responder {
             }
         },
         "puzzle": puzzle,
-        "ref": encode(line),
+        "ref": general_purpose::STANDARD.encode(line),
         "tag": PLATFORM
     });
     HttpResponse::Ok().json(data)
