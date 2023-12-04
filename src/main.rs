@@ -17,7 +17,7 @@ async fn greet(req: HttpRequest) -> impl Responder {
 
 async fn puzzle(_req: HttpRequest) -> impl Responder {
     let start = Instant::now();
-    let generated = Sudoku::generate_unique();
+    let generated = Sudoku::generate();
     let sudoku_line = generated.to_str_line();
     let time = start.elapsed().as_nanos() as u64;
     let puzzle = format!("{}", sudoku_line);
@@ -28,7 +28,7 @@ async fn puzzle(_req: HttpRequest) -> impl Responder {
     let mut solved = 0;
     let mut line = "".to_string();
 
-    if let Some(solution) = sudoku.solve_unique() {
+    if let Some(solution) = sudoku.solution() {
         solved = fin.elapsed().as_nanos() as u64;
         line = format!("{}", solution);
     }
