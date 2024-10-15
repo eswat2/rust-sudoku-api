@@ -600,9 +600,9 @@ dependencies = [
 
 [[package]]
 name = "impl-more"
-version = "0.1.6"
+version = "0.1.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "206ca75c9c03ba3d4ace2460e57b189f39f43de612c2f85836e65c929701bb2d"
+checksum = "e658178c10c747241199382079c0f195ce229866fbf4aa0d46fa6107fe33d2ec"
 
 [[package]]
 name = "indexmap"
