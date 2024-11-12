@@ -1,8 +1,11 @@
 use actix_cors::Cors;
 use actix_web::{web, App, HttpRequest, HttpResponse, HttpServer, Responder};
+use actix_files::NamedFile;
+
 use base64::{Engine as _, engine::general_purpose};
 use serde_json::json;
 use std::env;
+use std::path::PathBuf;
 use std::time::Instant;
 use sudoku::Sudoku;
 
@@ -13,6 +16,18 @@ async fn greet(req: HttpRequest) -> impl Responder {
     // format!("Hello {}!", &name)
     let data = json!({ "hello": format!("{}", name) });
     HttpResponse::Ok().json(data)
+}
+
+async fn index(req: HttpRequest) -> actix_web::Result<NamedFile> {
+    let name: &str = req.match_info().query("filename");
+    let target: &str;
+    if name.is_empty() {
+        target = "index.html";
+    } else {
+        target = name;
+    }
+    let path: PathBuf = target.parse().unwrap();
+    Ok(NamedFile::open(path)?)
 }
 
 async fn puzzle(_req: HttpRequest) -> impl Responder {
@@ -51,6 +66,9 @@ async fn puzzle(_req: HttpRequest) -> impl Responder {
         "ref": general_purpose::STANDARD.encode(line),
         "tag": PLATFORM
     });
+    // NOTE:  for debugging, print the first 3 rows of the puzzle...
+    let slice: &str = &puzzle[..27];
+    println!("-- {:?}", slice);
     HttpResponse::Ok().json(data)
 }
 
@@ -74,7 +92,7 @@ async fn main() -> std::io::Result<()> {
 
         App::new()
             .wrap(cors)
-            .route("/", web::get().to(greet))
+            .route("/", web::get().to(index))
             .route("/{name}", web::get().to(greet))
             .route("/api/puzzle", web::get().to(puzzle))
             .route("/api/{name}", web::get().to(greet))
