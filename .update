@@ -1,0 +1,29 @@
+#!/bin/bash
+# ---------------------------------------------------------------------
+# NOTE:  using a json cache, created with nx, read with jj...
+
+CACHE=${HOME}/github/.wc-cache.json
+TARGET=`cat .target`
+VERSION=`cat ${CACHE} | jj ${TARGET}`
+LAST=`cat .version`
+PREFIX="--"
+
+GREEN="\033[32m"
+STOP="\033[0m"
+
+bold=$(tput bold)
+normal=$(tput sgr0)
+
+if [ "$VERSION" == "$LAST" ];
+then
+  if [ $# == 0 ]
+  then
+    printf "%s skip... [ %s ] \n" $PREFIX $VERSION
+  fi
+else
+  printf "%s ${GREEN}%s${STOP} \n" $PREFIX $VERSION
+  echo $VERSION > .version
+  sed "s/VERSION/$VERSION/g" <.template.html > index.html
+  git commit -a -m "bump $VERSION"
+  git push
+fi
