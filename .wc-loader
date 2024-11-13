@@ -39,9 +39,6 @@ then
   KEYZ=`genKeyz`
   VERZ=`genVerz`
 
-  echo $KEYZ
-  echo $VERZ
-
   BAK1=.bak1.html
   BAK2=.bak2.html
 
@@ -78,15 +75,8 @@ then
 
   if [ "$MODZ" != "" ]
   then
-    PROD="--- Production:"
-    PWD=`pwd`
-    APP=`basename $PWD`
-    URL="https://${APP}.vercel.app"
-
     git commit -a -m "bump $MODZ"
     git push
-    vc --prod
-    printf "%s ${BOLD}%s${RESET} \n" "$PROD" "$URL"
   else
     SKIP=true
     # printf "%s skip... [ ${GREEN}%s${RESET} ] \n" $PREFIX "$IDZ"
