@@ -18,15 +18,9 @@ async fn greet(req: HttpRequest) -> impl Responder {
     HttpResponse::Ok().json(data)
 }
 
-async fn index(req: HttpRequest) -> actix_web::Result<NamedFile> {
-    let name: &str = req.match_info().query("filename");
-    let target: &str;
-    if name.is_empty() {
-        target = "index.html";
-    } else {
-        target = name;
-    }
-    let path: PathBuf = target.parse().unwrap();
+async fn groot(_req: HttpRequest) -> actix_web::Result<NamedFile> {
+    let name: &str = "index.html";
+    let path: PathBuf = name.parse().unwrap();
     Ok(NamedFile::open(path)?)
 }
 
@@ -92,7 +86,7 @@ async fn main() -> std::io::Result<()> {
 
         App::new()
             .wrap(cors)
-            .route("/", web::get().to(index))
+            .route("/", web::get().to(groot))
             .route("/{name}", web::get().to(greet))
             .route("/api/puzzle", web::get().to(puzzle))
             .route("/api/{name}", web::get().to(greet))
