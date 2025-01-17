@@ -62,7 +62,7 @@ async fn puzzle(_req: HttpRequest) -> impl Responder {
     });
     // NOTE:  for debugging, print the first 3 rows of the puzzle...
     let slice: &str = &puzzle[..27];
-    println!("-- {},{} {:?}", blanks, 81 - blanks, slice);
+    println!("-- {},{}:  {:?}", blanks, 81 - blanks, slice);
     HttpResponse::Ok().json(data)
 }
 
