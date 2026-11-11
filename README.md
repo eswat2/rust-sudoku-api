@@ -71,6 +71,25 @@ A hosted version of the game and API runs on Cloudflare Workers...
 - [sudoku.eswat2.app][sudoku-app] -- _the game_
 - [sudoku.eswat2.app/api/puzzle][puzzle-cf] -- _the api_
 
+## license:
+
+This repo is licensed under [AGPL-3.0-or-later](LICENSE).
+
+**Why AGPL?** Puzzles are generated and solved by the [sudoku][sudoku] crate,
+which is licensed AGPL-3.0. This server compiles that crate in, so the server as
+a whole is a work based on it and uses the same licence.
+
+**What that means for you:**
+
+- You can read, run, change and redistribute this code.
+- If you run a modified version as a service other people use over a network,
+  you have to offer them your source under AGPL-3.0-or-later too (section 13).
+- There's no warranty. See the [LICENSE](LICENSE) for the full terms.
+
+The game UI it serves, [proto-sudoku-wc][proto-sudoku-wc], is a separate npm
+package under the MIT licence, loaded from a CDN and talking to this API over
+HTTP, so it isn't part of the AGPL work.
+
 
 [actix-cors]: https://crates.io/crates/actix-cors
 [actix-web]: https://crates.io/crates/actix-web
@@ -80,6 +99,7 @@ A hosted version of the game and API runs on Cloudflare Workers...
 [local]: http://0.0.0.0:8080
 [puzzle]: http://0.0.0.0:8080/api/puzzle
 [sudoku-app]: https://sudoku.eswat2.app
+[proto-sudoku-wc]: https://www.npmjs.com/package/proto-sudoku-wc
 [puzzle-cf]: https://sudoku.eswat2.app/api/puzzle
 
 [out-dated]: https://github.com/kbknapp/cargo-outdated
