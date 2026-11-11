@@ -1,0 +1,11 @@
+{
+    "name": "Prototype Rust api server",
+    "description": "A barebones Rust api server using the Actix framework",
+    "repository": "https://github.com/eswat2/rust-api",
+    "success_url": "/",
+    "keywords": ["rust", "actix"],
+    "website": "https://github.com/eswat2/rust-api",
+    "env": {
+      "BUILDPACK_URL": "https://github.com/emk/heroku-buildpack-rust.git"
+    }
+  }
