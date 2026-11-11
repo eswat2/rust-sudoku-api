@@ -1,6 +1,6 @@
-# rust-api
+# rust-sudoku-api
 
-simple api server implemented in Rust...
+simple sudoku api server implemented in Rust, using [actix-web][actix-web]...
 
 ## dependencies:
 
@@ -64,13 +64,12 @@ cargo update
 
 ## status:
 
-This code has been "deprecated" since Heroku is removing it's free tier in November 2022.
+> This repo is for local development.
 
-> This repo is now primarily for local development.
+A hosted version of the game and API runs on Cloudflare Workers...
 
-The new API is now serverless and running on Vercel...
-
-- [puzzle][puzzle-io] -- _serverless_
+- [sudoku.eswat2.app][sudoku-app] -- _the game_
+- [sudoku.eswat2.app/api/puzzle][puzzle-cf] -- _the api_
 
 
 [actix-cors]: https://crates.io/crates/actix-cors
@@ -80,7 +79,8 @@ The new API is now serverless and running on Vercel...
 [sudoku]: https://crates.io/crates/sudoku
 [local]: http://0.0.0.0:8080
 [puzzle]: http://0.0.0.0:8080/api/puzzle
-[puzzle-io]: https://sudoku-rust-api.vercel.app/api/puzzle
+[sudoku-app]: https://sudoku.eswat2.app
+[puzzle-cf]: https://sudoku.eswat2.app/api/puzzle
 
 [out-dated]: https://github.com/kbknapp/cargo-outdated
 [up-date]: https://doc.rust-lang.org/cargo/commands/cargo-update.html
