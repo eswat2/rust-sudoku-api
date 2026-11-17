@@ -69,7 +69,7 @@ cargo update
 A hosted version of the game and API runs on Cloudflare Workers...
 
 - [sudoku.eswat2.app][sudoku-app] -- _the game_
-- [sudoku.eswat2.app/api/puzzle][puzzle-cf] -- _the api_
+- [sudoku.eswat2.app/api-sample][sample-cf] -- _a sample api response (the hosted api answers only its game page)_
 
 ## license:
 
@@ -100,7 +100,7 @@ HTTP, so it isn't part of the AGPL work.
 [puzzle]: http://0.0.0.0:8080/api/puzzle
 [sudoku-app]: https://sudoku.eswat2.app
 [proto-sudoku-wc]: https://www.npmjs.com/package/proto-sudoku-wc
-[puzzle-cf]: https://sudoku.eswat2.app/api/puzzle
+[sample-cf]: https://sudoku.eswat2.app/api-sample
 
 [out-dated]: https://github.com/kbknapp/cargo-outdated
 [up-date]: https://doc.rust-lang.org/cargo/commands/cargo-update.html
